@@ -12,16 +12,18 @@ FORCE (Fiber Optic Readiness Check Engine) is a Python-based tool designed to au
 ## Dependencies
 FORCE relies on the following Python libraries:
 - pandas
+- geopandas
 - openpyxl
-- re
-- datetime
-- os
-- shutil
+- lxml
+- fastkml
+- shapely
+- flask
+- pyproj
 
-These dependencies can be installed using pip:
+These dependencies can be installed using bash:
 
 ```
-pip install pandas openpyxl
+install_dependencies.sh
 ```
 
 ## Collaborator
