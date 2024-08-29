@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
+    <title>Force Summary</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap.min.css')}}">
+
+    <!-- CSS -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .full-width {
+            width: 50vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container-full-height {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .min-col-width {
+            min-width: 130px;
+            /* Atur lebar minimal kolom */
+        }
+
+        .min-col-width-no {
+            min-width: 50px;
+            /* Atur lebar minimal kolom */
+        }
+
+        .custom-bg {
+            background-color: #19181d;
+            /* Kode warna latar belakang */
+        }
+
+        .custom-rounded {
+            border-radius: 10px;
+            /* Ganti dengan nilai radius yang diinginkan */
+        }
+
+        .custom-button {
+            background-color: #8a359f;
+            color: white;
+        }
+        .bg-ft {
+            background-color: #26252b;
+        }
+        .text-ft {
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body class="custom-bg">
+    <div class="container-full-height">
+        <div class="d-flex justify-content-center">
+            <img src="{{url_for('static', filename = 'force-light.svg')}}" width="500" class="d-inline-block me-2">
+        </div>
+        <div class="full-width d-flex mt-4 justify-content-center">
+            <div class="container-fluid mb-5">
+                <form class="d-flex" role="search" method="POST" action="/summary">
+                    <input class="form-control" type="search" name="cluster_id" placeholder="Find Cluster ID" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-ft text-lg-start fixed-bottom">
+        <div class="text-ft text-center p-3">
+            © 2024 Copyright: XL Axiata
+        </div>
+    </footer>
+</body>
+
+</html>

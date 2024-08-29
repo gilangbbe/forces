@@ -1,0 +1,14 @@
+forceenv/
+__pycache__/
+Input/
+Output/
+Summary/
+Temp/
+.env
+templates/assets/
+templates/table_gasta.html
+input BU/
+build/
+dist/
+etc/
+app.log

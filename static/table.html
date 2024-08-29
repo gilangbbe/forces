@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Summary</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap.min.css')}}">
+    <style>
+        .min-col-width {
+            min-width: 110px;
+            /* Atur lebar minimal kolom */
+        }
+
+        .min-col-width-no {
+            min-width: 50px;
+            /* Atur lebar minimal kolom */
+        }
+
+        .custom-bg {
+            background-color: #ffffff;
+            /* Kode warna latar belakang */
+        }
+
+        .scrollable-table {
+            max-height: 600px;
+            /* Batasi tinggi div */
+            overflow-y: auto;
+            /* Tambahkan bilah penggulir vertikal jika konten melebihi tinggi div */
+        }
+
+        .scrollable-table::-webkit-scrollbar {
+            width: 0px;
+            /* Set the scrollbar width to 0 */
+            background: transparent;
+            /* Make it transparent */
+        }
+
+        .scrollable-table thead th {
+            position: sticky;
+            z-index: 1;
+            top: 0;
+        }
+
+        .custom-rounded {
+            border-radius: 10px;
+            /* Ganti dengan nilai radius yang diinginkan */
+        }
+    </style>
+</head>
+
+<body class="custom-bg">
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{url_for('static', filename = 'Logo-slim.png')}}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                FORCE
+            </a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Bagian header -->
+    <div>
+        <h6 class="ms-5 mt-5">Checking Summary</h6>
+    </div>
+    <div>
+        <h2 class="ms-5 mt-1">{{ cluster_id }}</h2>
+    </div>
+
+    <!-- Bagian Tabel -->
+    <div class="d-flex flex-row mt-5">
+        <div class="p-3">
+            <!-- Divider -->
+        </div>
+        <div class="table-responsive scrollable-table custom-rounded">
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center align-middle min-col-width-no table-header-shadow">No</th>
+                        {% for header in headings %}
+                        <th class="text-center align-middle min-col-width table-header-shadow">{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <th scope="row" class="text-center align-middle">{{ loop.index }}</th>
+                        {% for cell in row %}
+                        <td class="text-center align-middle">{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="p-3">
+            <!-- Divider -->
+        </div>
+    </div>
+</body>
+
+</html>
